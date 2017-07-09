@@ -1,19 +1,19 @@
 [
     {
-        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
-        "source": "C:\\Users\\sony\\.android\\build-cache\\10bb4bc5e61f6017fda1b4a0976ade4f45a1ee26\\output\\res\\layout\\design_layout_snackbar.xml"
-    },
-    {
         "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
         "source": "C:\\Users\\sony\\.android\\build-cache\\10bb4bc5e61f6017fda1b4a0976ade4f45a1ee26\\output\\res\\layout\\design_navigation_item_subheader.xml"
     },
     {
-        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
-        "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout\\select_dialog_multichoice_material.xml"
+        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
+        "source": "C:\\Users\\sony\\.android\\build-cache\\10bb4bc5e61f6017fda1b4a0976ade4f45a1ee26\\output\\res\\layout\\design_layout_snackbar.xml"
     },
     {
         "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
         "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout\\select_dialog_multichoice_material.xml"
     },
     {
         "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
@@ -36,12 +36,12 @@
         "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout\\abc_screen_toolbar.xml"
     },
     {
-        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
-        "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout\\abc_expanded_menu_layout.xml"
-    },
-    {
         "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
         "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
         "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",

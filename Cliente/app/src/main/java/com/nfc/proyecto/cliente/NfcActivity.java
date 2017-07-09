@@ -52,6 +52,7 @@ public class NfcActivity extends AppCompatActivity {
     String Dependencia;
     String Plano;
     ImageView imgViewer;
+
     String resultado;
     JSONObject obj;
 
@@ -66,6 +67,7 @@ public class NfcActivity extends AppCompatActivity {
         mensaje = (TextView) findViewById(R.id.nfc);
         imgViewer = (ImageView) findViewById(R.id.imageView);
 
+
         //Bundle datos = this.getIntent().getExtras();
 
         Sala_id = getIntent().getStringExtra("Sala_id");
@@ -77,16 +79,16 @@ public class NfcActivity extends AppCompatActivity {
 
         if (mNfcAdapter == null) {
             // Stop here, we definitely need NFC
-            Toast.makeText(this, "This device doesn't support NFC.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Este dispositivo no soporta NFC.", Toast.LENGTH_LONG).show();
             //finish();
             return;
 
         }
 
         if (!mNfcAdapter.isEnabled()) {
-            mensaje.setText("NFC is disabled.");
+            mensaje.setText("NFC Esta deshabilitado");
         } else {
-            mensaje.setText("esto no se para que es");
+            mensaje.setText("Acerque su tarjeta NFC");
         }
 
         handleIntent(getIntent());
@@ -281,7 +283,7 @@ public class NfcActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             if (result != null) {
-                mensaje.setText("Read content: " + result);
+                //mensaje.setText("Read content: " + result);
                 datosNfc=result;
                 //result=result.replace("\n","").split("\r");
                 //ciframos el dni

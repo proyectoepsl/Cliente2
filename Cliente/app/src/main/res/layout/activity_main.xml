@@ -17,7 +17,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:textSize="16sp"
+        android:textSize="25sp"
         android:text="Bienvenido al control de dependecias" />
 
     <Button
@@ -34,14 +34,16 @@
 
     <Button
         android:id="@+id/nfc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:background="#00796B"
         android:text="Leer Nfc"
+        android:visibility="invisible"
         android:textColor="#FFF"
-        android:layout_above="@+id/IdenSala"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
 
     <ImageView
         android:id="@+id/imageView"

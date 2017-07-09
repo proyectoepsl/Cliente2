@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.os.Parcelable;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -58,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         mLayout = findViewById(R.id.linearLayoutMain);
+        final Button LeerNfc = (Button) findViewById(R.id.nfc);
+
 
         IdenSala = (Button) findViewById(R.id.IdenSala);
         final ImageView imgViewer = (ImageView) findViewById(R.id.imageView);
@@ -78,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                             //Cifrar imei
                             Crypt aesCrypt = new Crypt();
                             String a = aesCrypt.encrypt_string(imei);
+
                             // Your implementation
                             HttpClient httpClient = new DefaultHttpClient();
 
@@ -97,11 +101,15 @@ public class MainActivity extends AppCompatActivity {
                             respStr = EntityUtils.toString(resp.getEntity());
                             obj = new JSONObject(respStr);
                             resultado = obj.get("result").toString();
+
+
                             if (resultado.equals("200")) {
+
                                 MainActivity.this.runOnUiThread(new Runnable() {
                                     public void run () {
                                         //Do something on UiThread
                                         try {
+
                                             byte[] byteArray = "".getBytes();
 
                                             //JSONObject obj = new JSONObject(respStr);
@@ -110,7 +118,8 @@ public class MainActivity extends AppCompatActivity {
 
                                             Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
                                             imgViewer.setImageBitmap(bitmap);
-
+                                            IdenSala.setVisibility(View.GONE);
+                                            LeerNfc.setVisibility(View.VISIBLE);
                                             mensaje.setText("Plano Emergencia Sala Nº " + obj.get("Dependencia").toString());
 
                                         } catch (Throwable t) {
@@ -149,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final Button LeerNfc = (Button) findViewById(R.id.nfc);
+
         LeerNfc.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 try{
@@ -186,8 +195,13 @@ public class MainActivity extends AppCompatActivity {
 
         //WRITE_EXTERNAL_STORAGE tiene implícito READ_EXTERNAL_STORAGE porque pertenecen al mismo
         //grupo de permisos
-        if(Build.VERSION.SDK_INT>=23) {
-            int writePermission = checkSelfPermission(Manifest.permission.READ_PHONE_STATE);
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M) {
+
+                // Show alert dialog to the user saying a separate permission is needed
+                // Launch the settings activity if the user prefers
+               // Intent myIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+               // startActivity(myIntent);
+               int writePermission = checkSelfPermission(Manifest.permission.READ_PHONE_STATE);
 
             if (writePermission != PackageManager.PERMISSION_GRANTED) {
                 requestPermission();

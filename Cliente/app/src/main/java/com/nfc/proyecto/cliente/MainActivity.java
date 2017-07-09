@@ -24,12 +24,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
@@ -89,23 +89,12 @@ public class MainActivity extends AppCompatActivity {
                             post.setHeader("charset", "utf-8");
                             //Construimos el objeto cliente en formato JSON
                             JSONObject dato = new JSONObject();
-
                             dato.put("Hash", a);
-
-
                             StringEntity entity = new StringEntity(dato.toString());
                             post.setEntity(entity);
-
                             //Realizo el envío
                             HttpResponse resp = httpClient.execute(post);
-
-                            //respStr = EntityUtils.toString(resp, HTTP.UTF_8);
-
                             respStr = EntityUtils.toString(resp.getEntity());
-
-                            String _response=EntityUtils.toString(entity); // content will be consume only once
-                            final JSONObject jObject=new JSONObject(_response);
-
                             obj = new JSONObject(respStr);
                             resultado = obj.get("result").toString();
                             if (resultado.equals("200")) {

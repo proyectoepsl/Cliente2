@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Cliente</string>
+    <string name="permission_write_storage">Permiso de escritura necesario.</string>
+    <string name="settings">Configuración</string>
+</resources>

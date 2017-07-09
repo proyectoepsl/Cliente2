@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayoutMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:paddingTop="16dp"
+    tools:context="com.nfc.proyecto.cliente.MainActivity">
+
+    <TextView
+        android:id="@+id/Mensaje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:textSize="16sp"
+        android:text="Bienvenido al control de dependecias" />
+
+    <Button
+    android:id="@+id/IdenSala"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:background="#00796B"
+    android:text="Identificar Sala"
+    android:textColor="#FFF" />
+
+
+    <Button
+        android:id="@+id/nfc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00796B"
+        android:text="Leer Nfc"
+        android:textColor="#FFF"
+        android:layout_above="@+id/IdenSala"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:scaleType="fitCenter"
+         />
+
+</RelativeLayout>

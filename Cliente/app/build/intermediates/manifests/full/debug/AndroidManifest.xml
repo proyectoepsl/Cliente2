@@ -15,6 +15,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- Permisos nfc -->
     <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <meta-data
         android:name="android.support.VERSION"
@@ -27,14 +28,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.nfc.proyecto.cliente.MainActivity" >
+        <activity
+            android:name="com.nfc.proyecto.cliente.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.nfc.proyecto.cliente.NfcActivity" >
+        <activity
+            android:name="com.nfc.proyecto.cliente.NfcActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" >
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />

@@ -7,25 +7,19 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
-import android.os.Parcelable;
-import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -36,9 +30,8 @@ import org.json.JSONObject;
 
 import android.support.design.widget.Snackbar;
 
-import java.io.BufferedReader;
-import java.nio.Buffer;
 import java.nio.charset.StandardCharsets;
+
 import android.util.Base64;
 
 
@@ -70,11 +63,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Ver imei del dispositivo
                 verifyPermission();
-                //final String imei = mensaje.getText().toString();//btenerImei();
-
 
                 //Enviar datos por post
-                new Thread(new Runnable(){
+                new Thread(new Runnable() {
                     @Override
                     public void run() {
                         try {
@@ -85,9 +76,7 @@ public class MainActivity extends AppCompatActivity {
                             // Your implementation
                             HttpClient httpClient = new DefaultHttpClient();
 
-
                             //Llamamos al rest con los datos cifrados
-                            // HttpPost post = new HttpPost("https://proyectoepsl.pythonanywhere.com/rest_sala");
                             HttpPost post = new HttpPost("http://192.168.2.129:8000/rest_sala/");
                             post.setHeader("Content-Type", "application/json");
                             post.setHeader("charset", "utf-8");
@@ -102,19 +91,14 @@ public class MainActivity extends AppCompatActivity {
                             obj = new JSONObject(respStr);
                             resultado = obj.get("result").toString();
 
-
                             if (resultado.equals("200")) {
-
                                 MainActivity.this.runOnUiThread(new Runnable() {
-                                    public void run () {
+                                    public void run() {
                                         //Do something on UiThread
                                         try {
-
                                             byte[] byteArray = "".getBytes();
-
-                                            //JSONObject obj = new JSONObject(respStr);
-                                            byteArray = obj.get("Plano").toString().getBytes(StandardCharsets.US_ASCII);;
-                                            byteArray =  Base64.decode(byteArray, Base64.DEFAULT);
+                                            byteArray = obj.get("Plano").toString().getBytes(StandardCharsets.US_ASCII);
+                                            byteArray = Base64.decode(byteArray, Base64.DEFAULT);
 
                                             Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
                                             imgViewer.setImageBitmap(bitmap);
@@ -128,9 +112,9 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 });
 
-                            } else{
+                            } else {
                                 MainActivity.this.runOnUiThread(new Runnable() {
-                                    public void run () {
+                                    public void run() {
                                         //Do something on UiThread
                                         try {
                                             imgViewer.setImageDrawable(getResources().getDrawable(R.drawable.error));
@@ -141,15 +125,7 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 });
                             }
-
-                            //Gson gson = new Gson();
-                            // 2. JSON to Java object, read it from a Json String.
-                            //gson.fromJson(respStr, Sala.class);
-
-                            //mensaje.setText(respStr);
-                            //String plano = respStr[]
-                        }
-                        catch (Exception ex) {
+                        } catch (Exception ex) {
                             ex.printStackTrace();
                         }
                     }
@@ -161,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
         LeerNfc.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                try{
+                try {
                     Intent i = new Intent(view.getContext(), NfcActivity.class);
                     //Obtenemos el numero de sala para cifrarlo pasandolo a la segunda actividad
                     //i.putExtra("Sala", respStr.toString());
@@ -169,8 +145,7 @@ public class MainActivity extends AppCompatActivity {
                     //i.putExtra("Dependencia", obj.get("Dependencia").toString());
                     //i.putExtra("Plano", obj.get("Plano").toString());
                     startActivity(i);
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             }
@@ -183,10 +158,7 @@ public class MainActivity extends AppCompatActivity {
     private void obtenerIMEI() {
         TelephonyManager tel;
         tel = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        //TextView mensaje = (TextView) findViewById(R.id.Imei);
-        imei= tel.getDeviceId().toString();
-        //mensaje.setText(imei);
-        //return imei;
+        imei = tel.getDeviceId().toString();
     }
 
     //Paso 1. Verificar permiso
@@ -195,13 +167,11 @@ public class MainActivity extends AppCompatActivity {
 
         //WRITE_EXTERNAL_STORAGE tiene implícito READ_EXTERNAL_STORAGE porque pertenecen al mismo
         //grupo de permisos
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
-                // Show alert dialog to the user saying a separate permission is needed
-                // Launch the settings activity if the user prefers
-               // Intent myIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
-               // startActivity(myIntent);
-               int writePermission = checkSelfPermission(Manifest.permission.READ_PHONE_STATE);
+            // Show alert dialog to the user saying a separate permission is needed
+            // Launch the settings activity if the user prefers
+            int writePermission = checkSelfPermission(Manifest.permission.READ_PHONE_STATE);
 
             if (writePermission != PackageManager.PERMISSION_GRANTED) {
                 requestPermission();

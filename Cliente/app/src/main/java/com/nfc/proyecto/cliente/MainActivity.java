@@ -165,22 +165,20 @@ public class MainActivity extends AppCompatActivity {
     @TargetApi(Build.VERSION_CODES.M)
     private void verifyPermission() {
 
-        //WRITE_EXTERNAL_STORAGE tiene implícito READ_EXTERNAL_STORAGE porque pertenecen al mismo
-        //grupo de permisos
+        //Compara que version de android que tiene el sistema
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
-            // Show alert dialog to the user saying a separate permission is needed
-            // Launch the settings activity if the user prefers
+            //Se comprueba si la aplicacion tiene permiso
             int writePermission = checkSelfPermission(Manifest.permission.READ_PHONE_STATE);
-
+            //Si la aplicacion no tiene permisos se solicita
             if (writePermission != PackageManager.PERMISSION_GRANTED) {
+                //Solicitud de permisos
                 requestPermission();
             } else {
+                //La aplicacion ya se le han concedido antes los permisos
                 obtenerIMEI();
             }
         } else {
-            //simply use the required feature
-            //as the user has already granted permission to them during installation
+            //La version de android no requiere permisos
             obtenerIMEI();
         }
     }

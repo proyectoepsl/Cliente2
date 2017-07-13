@@ -10,20 +10,14 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.KeySpec;
 import java.util.Arrays;
 
 import android.annotation.SuppressLint;
-import android.location.Criteria;
 import android.util.Base64;
 import android.util.Log;
 
@@ -33,9 +27,13 @@ public class Crypt {
     private static final String tag = Crypt.class.getSimpleName();
 
     private static final String characterEncoding = "UTF-8";
+    // Definición del modo de cifrado a utilizar
     private static final String cipherTransformation = "AES/CBC/PKCS5Padding";
+    // Definición del tipo de algoritmo a utilizar (AES, DES, RSA)
     private static final String aesEncryptionAlgorithm = "AES";
+    //Clave que deben compartir el cliente y el servidor
     private static final String key = "this is my key";
+    //Vector de inicialización a utilizar
     private static byte[] ivBytes = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
     private static byte[] keyBytes;
 
@@ -44,6 +42,7 @@ public class Crypt {
 
     Crypt()
     {
+        //Generar vector de inicialización a utilizar
         SecureRandom random = new SecureRandom();
         Crypt.ivBytes = new byte[16];
         random.nextBytes(Crypt.ivBytes);
@@ -56,16 +55,24 @@ public class Crypt {
 
         return instance;
     }
-
-    public String encrypt_string(final String plain) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, IOException
-    {
+    /**
+     * Función de tipo String que recibe una llave (key), un vector de inicialización (ivBytes)
+     * y el texto que se desea cifrar(plain)
+     * encrypt_string=Devuelve el texto cifrado en modo String
+     *Exception puede devolver excepciones de los siguientes tipos: NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, NoSuchPaddingException
+     */
+    public String encrypt_string(final String plain) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, IOException {
         return Base64.encodeToString(encrypt(plain.getBytes()), Base64.DEFAULT);
     }
-
-    public String decrypt_string(final String plain) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, ClassNotFoundException, IOException
-    {
+    /**
+     * Función de tipo String que recibe una llave (key), un vector de inicialización (ivBytes)
+     * y el texto que se desea descifrar
+     * plain: el texto cifrado en modo String
+     * decrypt_string:el texto desencriptado en modo String
+     * Puede devolver excepciones de los siguientes tipos: NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException
+     */
+    public String decrypt_string(final String plain) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, ClassNotFoundException, IOException {
         byte[] encryptedBytes = decrypt(Base64.decode(plain, 0));
-        //return Base64.encodeToString( encryptedBytes, Base64.DEFAULT);
         return new String(encryptedBytes);
     }
 
@@ -97,7 +104,6 @@ public class Crypt {
         random.nextBytes(Crypt.ivBytes);
 
         cipher.init(Cipher.ENCRYPT_MODE, newKey, random);
-//    cipher.init(Cipher.ENCRYPT_MODE, newKey, ivSpec);
         byte[] destination = new byte[ivBytes.length + mes.length];
         System.arraycopy(ivBytes, 0, destination, 0, ivBytes.length);
         System.arraycopy(mes, 0, destination, ivBytes.length, mes.length);

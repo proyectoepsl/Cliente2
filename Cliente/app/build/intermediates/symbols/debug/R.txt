@@ -895,6 +895,7 @@ int layout select_dialog_singlechoice_material 0x7f040039
 int layout support_simple_spinner_dropdown_item 0x7f04003a
 int mipmap ic_launcher 0x7f030000
 int mipmap ic_launcher_round 0x7f030001
+int mipmap nfc 0x7f030002
 int string abc_action_bar_home_description 0x7f070000
 int string abc_action_bar_home_description_format 0x7f070001
 int string abc_action_bar_home_subtitle_description_format 0x7f070002

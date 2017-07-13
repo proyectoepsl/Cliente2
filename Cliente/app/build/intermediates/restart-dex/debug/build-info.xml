@@ -6,22 +6,22 @@
     density="hdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1499717176970"
+    timestamp="1499956695392"
     token="-2619128143598331269"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="2103" />
+        duration="1217" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="230" />
+        duration="31" />
     <task
         name="verifier"
-        duration="71" />
+        duration="0" />
 
     <artifact
         location="C:\Users\sony\Downloads\Cliente2\Cliente\Cliente\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
@@ -32,7 +32,7 @@
 
     <build
         build-mode="FULL"
-        timestamp="1499716776403"
+        timestamp="1499956468293"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\sony\Downloads\Cliente2\Cliente\Cliente\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
@@ -73,7 +73,7 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1499717176970"
+        timestamp="1499956695392"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\sony\Downloads\Cliente2\Cliente\Cliente\app\build\intermediates\split-apk\debug\slices\slice_9.apk"

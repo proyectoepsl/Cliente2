@@ -9,6 +9,7 @@
         android:targetSdkVersion="25" />
 
     <!-- Permisos imei -->
+    <!-- WRITE_EXTERNAL_STORAGE tiene implícito READ_EXTERNAL_STORAGE porque pertenecen al mismo grupo de permisos -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- Permisos internet rest -->
@@ -23,9 +24,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/nfc"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/nfc"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
@@ -37,6 +38,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Permisos de NFC solo para la actividad NFC -->
         <activity
             android:name="com.nfc.proyecto.cliente.NfcActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" >

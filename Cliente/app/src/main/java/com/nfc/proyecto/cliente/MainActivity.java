@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                             //Url del servidor
                             //https://proyectoepsl.pythonanywhere.com/rest_sala/
                             //http://192.168.2.129:8000/rest_sala/
-                            HttpPost post = new HttpPost("http://192.168.2.129:8000/rest_sala/");
+                            HttpPost post = new HttpPost("https://proyectoepsl.pythonanywhere.com/rest_sala/");
                             //Cabecera del envio de datos
                             post.setHeader("Content-Type", "application/json");
                             post.setHeader("charset", "utf-8");

@@ -146,12 +146,6 @@ public class NfcActivity extends AppCompatActivity {
         handleIntent(intent);
     }
 
-
-
-    /**
-     * @param activity The corresponding {@link Activity} requesting the foreground dispatch.
-     * @param adapter The {@link NfcAdapter} used for the foreground dispatch.
-     */
     public static void setupForegroundDispatch(final Activity activity, NfcAdapter adapter) {
         final Intent intent = new Intent(activity.getApplicationContext(), activity.getClass());
         intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -250,34 +244,34 @@ public class NfcActivity extends AppCompatActivity {
 
                             //Llamamos al rest con los datos cifrados
                             // HttpPost post = new HttpPost("https://proyectoepsl.pythonanywhere.com/rest_sala");
-                            HttpPost post = new HttpPost("http://192.168.2.129:8000/rest_usuario/");
+                            HttpPost post = new HttpPost("https://proyectoepsl.pythonanywhere.com/rest_usuario/");
                             post.setHeader("Content-Type","application/json");
                             post.setHeader("charset","utf-8");
                             //Construimos el objeto cliente en formato JSON
                             JSONObject dato = new JSONObject();
 
-
+                            //Datos a enviar el id de sala y el numero de DNI
                             dato.put("Sala_id", a);
                             dato.put("Dni",b);
 
                             Log.i("JSON", dato.toString());
-
+                            ///Realizo peticion post
                             StringEntity entity = new StringEntity(dato.toString());
                             post.setEntity(entity);
 
                             //Realizo el envío
                             HttpResponse resp = httpClient.execute(post);
-
+                            //Recibo respuesta del servidor.
                             String respStr = EntityUtils.toString(resp.getEntity());
                             obj = new JSONObject(respStr);
                             resultado = obj.get("result").toString();
                             if (resultado.equals("200")) {
                                 NfcActivity.this.runOnUiThread(new Runnable() {
                                     public void run () {
-                                        //Do something on UiThread
+                                        //Si el usuario puede entrar a la sala le muestra el mensaje de bienvenida
                                         try {
                                             imgViewer.setImageDrawable(getResources().getDrawable(R.drawable.ok));
-                                            mensaje.setText("Bienvenido");
+                                            mensaje.setText(obj.get("Error").toString());
                                         } catch (Throwable t) {
                                             t.printStackTrace();
                                         }
@@ -287,7 +281,7 @@ public class NfcActivity extends AppCompatActivity {
                             else{
                                 NfcActivity.this.runOnUiThread(new Runnable() {
                                     public void run () {
-
+                                        //Si el usuario no puede entrar en la sala se muestra el mensaje de error.
                                         try {
                                             imgViewer.setImageDrawable(getResources().getDrawable(R.drawable.error));
                                             mensaje.setText(obj.get("Error").toString());

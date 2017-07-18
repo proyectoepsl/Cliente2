@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\sony\Downloads\Cliente2\Cliente\Cliente\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\Users\sony\Downloads\Cliente2\Cliente\Cliente\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_70288a672ba1a6d3336a62f3cb799fa691e7f545\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\sony\Downloads\Cliente2\Cliente\Cliente\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4215ee26394cab36d9eeef8bd942536dde8e9c87">
+        <dex dex="C:\Users\sony\Downloads\Cliente2\Cliente\Cliente\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_0f3ea9a57bbeb75ae6f08dd639744a215c2771cd\classes.dex" />
+    </item>
+
+</items>

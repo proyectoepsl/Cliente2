@@ -1,10 +1,14 @@
 [
     {
-        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher.png",
-        "source": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher_round.png",
+        "source": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher_round.png",
-        "source": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\logo_ujaen.png",
+        "source": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\src\\main\\res\\mipmap-hdpi\\logo_ujaen.png"
+    },
+    {
+        "merged": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher.png",
+        "source": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     }
 ]

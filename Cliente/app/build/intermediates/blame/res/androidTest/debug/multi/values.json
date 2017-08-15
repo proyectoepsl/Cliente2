@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "outputFile": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 96
                 },
                 "from": {
-                    "file": "C:\\Users\\sony\\.android\\build-cache\\f858baea279e77b5da214d919e9f74d361581f3f\\output\\res\\values\\values.xml",
+                    "file": "C:\\Users\\tf05091\\.android\\build-cache\\e994c45e953ab6bf9632db774505fb0273f00acf\\output\\res\\values\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

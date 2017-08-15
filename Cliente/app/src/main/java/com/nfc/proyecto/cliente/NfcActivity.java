@@ -12,13 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 import android.content.IntentFilter.MalformedMimeTypeException;
 import android.nfc.NdefMessage;
@@ -30,14 +24,11 @@ import android.os.AsyncTask;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
-
-
 public class NfcActivity extends AppCompatActivity {
     //Defino tipo de formato de la tarjeta
     public static final String MIME_TEXT_PLAIN = "text/plain";
     //Variable para nombrar log
     public static final String TAG = "NfcProyecto";
-
 
     TextView mensaje = null;
     private NfcAdapter mNfcAdapter;
@@ -49,9 +40,9 @@ public class NfcActivity extends AppCompatActivity {
 
     String resultado;
     JSONObject obj;
+
     //Llamada al metodo NFC cuando pulso el boton
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -78,8 +69,6 @@ public class NfcActivity extends AppCompatActivity {
         }
         //3º Lanzo el intent de NFC
         handleIntent(getIntent());
-
-
     }
 
     private void handleIntent(Intent intent) {
@@ -88,22 +77,23 @@ public class NfcActivity extends AppCompatActivity {
         //ACTION_NDEF_DISCOVERED:permiso de iniciar una actividad cuando se descubre una etiqueta tipo NDEF.
         //Se mira si la tarjeta es NDEF
         if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)) {
-
             String type = intent.getType();
             //Comprueba que el formato de mime es correcto
             if (MIME_TEXT_PLAIN.equals(type)) {
-
                 Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
                 //4º PASO:LLamada al metodo que lee la tarjeta
                 new NdefReaderTask().execute(tag);
 
+                if(datosNfc != null) {
+                    llamadaRest();
+                    datosNfc = null;
+                }
             } else {
                 Log.d(TAG, "Tipo de mime incorrecto: " + type);
             }
             //ACTION_TECH_DISCOVERED:Ipermiso de iniciar una actividad cuando se descubre una etiqueta y se registran actividades para las tecnologías específicas de la etiqueta.
             //Si la tarjeta no es NDEF y se intenta descubrir que tecnologia es
         } else if (NfcAdapter.ACTION_TECH_DISCOVERED.equals(action)) {
-
             Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
             String[] techList = tag.getTechList();
             String searchedTech = Ndef.class.getName();
@@ -112,6 +102,10 @@ public class NfcActivity extends AppCompatActivity {
                 if (searchedTech.equals(tech)) {
                     //4º PASO:LLamada al metodo que lee la tarjeta
                     new NdefReaderTask().execute(tag);
+                    if(datosNfc != null){
+                        llamadaRest();
+                        datosNfc=null;
+                    }
                     break;
                 }
             }
@@ -122,12 +116,12 @@ public class NfcActivity extends AppCompatActivity {
     public void cerrar(View view) {
         finish();
     }
+
     //Es necesario que la actividad se desarrolle en segundo plano o se producirá una excepción
     public void onResume() {
         super.onResume();
 
         setupForegroundDispatch(this, mNfcAdapter);
-
     }
 
     @Override
@@ -136,7 +130,6 @@ public class NfcActivity extends AppCompatActivity {
          * Call this before onPause, otherwise an IllegalArgumentException is thrown as well.
          */
         stopForegroundDispatch(this, mNfcAdapter);
-
         super.onPause();
     }
 
@@ -173,11 +166,76 @@ public class NfcActivity extends AppCompatActivity {
         adapter.disableForegroundDispatch(activity);
     }
 
+    public void llamadaRest(){
+        try {
+            Crypt aesCrypt = Crypt.getInstance();
+            String a = aesCrypt.encrypt_string(Sala_id);
+            String b = aesCrypt.encrypt_string(datosNfc.replace("\n","").split("\r")[2]);
+            // Your implementation
+
+            Prefern prefern = Prefern.getPrefern();
+            //Llamamos al rest con los datos cifrados
+            String url = prefern.getVariable("Url");
+
+            //Construimos el objeto cliente en formato JSON
+            JSONObject dato = new JSONObject();
+            //Datos a enviar el id de sala y el numero de DNI
+            dato.put("Sala_id", a);
+            dato.put("Dni",b);
+
+            StringEntity entity = new StringEntity(dato.toString());
+
+            Http http = Http.getHttp();
+            http = Http.getHttp();
+            http.setEntity(entity);
+            http.setUrl(url);
+            http.setRest("/rest_usuario/");
+            http.doInBackground();
+            obj = http.getResponse();
+
+            resultado = obj.get("result").toString();
+            if (resultado.equals("200")) {
+                //Si el usuario puede entrar a la sala le muestra el mensaje de bienvenida
+                try {
+                    imgViewer.setImageDrawable(getResources().getDrawable(R.drawable.ok_usuario));
+                    mensaje.setText(obj.get("Error").toString());
+                } catch (Throwable t) {
+                    t.printStackTrace();
+                }
+            }
+            else{
+                //Si el usuario no puede entrar en la sala se muestra el mensaje de error.
+                try {
+                    imgViewer.setImageDrawable(getResources().getDrawable(R.drawable.error_usuario));
+                    mensaje.setText(obj.get("Error").toString());
+
+                } catch (Throwable t) {
+                    t.printStackTrace();
+                }
+            }
+            //Se espere 5 seg y vuelva a la pantalla anterior
+            new Thread(new Runnable(){
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    finish();
+                    return;
+                }
+            }).start();
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
 
     //4º Paso Leer los datos de la tarjeta
     //El lector NFC se lleva acabo en una tarea asincrona.Las cuales se definen como una subclase privada
     private class NdefReaderTask extends AsyncTask<Tag, Void, String> {
-
         @Override
         protected String doInBackground(Tag... params) {
             Tag tag = params[0];
@@ -185,7 +243,6 @@ public class NfcActivity extends AppCompatActivity {
             Ndef ndef = Ndef.get(tag);
             // Esta tarjeta no soporta NDEF
             if (ndef == null) {
-
                 return null;
             }
 
@@ -209,7 +266,6 @@ public class NfcActivity extends AppCompatActivity {
         //5º PASO:  formatea los datos de la tarjeta
         private String readText(NdefRecord record) throws UnsupportedEncodingException {
 
-
             byte[] payload = record.getPayload();
 
             // Obtiene el tipo de codificacion
@@ -217,7 +273,6 @@ public class NfcActivity extends AppCompatActivity {
 
             // Obtinen el codigo del lenguaje
             int languageCodeLength = payload[0] & 0063;
-
 
             // Obtiene el texto
             return new String(payload, languageCodeLength + 1, payload.length - languageCodeLength - 1, textEncoding);
@@ -231,20 +286,21 @@ public class NfcActivity extends AppCompatActivity {
 
                 datosNfc=result;
                 //Hacemos peticion POST al servidor con el DNI del usurio
-                new Thread(new Runnable(){
+                /*new Thread(new Runnable(){
                     @Override
                     public void run() {
                         try {
-                            Crypt aesCrypt = new Crypt();
+                            Crypt aesCrypt = Crypt.getInstance();
                             String a = aesCrypt.encrypt_string(Sala_id);
                             String b = aesCrypt.encrypt_string(datosNfc.replace("\n","").split("\r")[2]);
                             // Your implementation
                             HttpClient httpClient = new DefaultHttpClient();
 
-
+                            Prefern prefern = Prefern.getPrefern();
                             //Llamamos al rest con los datos cifrados
                             // HttpPost post = new HttpPost("https://proyectoepsl.pythonanywhere.com/rest_sala");
-                            HttpPost post = new HttpPost("https://proyectoepsl.pythonanywhere.com/rest_usuario/");
+                            String url = prefern.getVariable("Url");
+                            HttpPost post = new HttpPost(url);
                             post.setHeader("Content-Type","application/json");
                             post.setHeader("charset","utf-8");
                             //Construimos el objeto cliente en formato JSON
@@ -270,7 +326,7 @@ public class NfcActivity extends AppCompatActivity {
                                     public void run () {
                                         //Si el usuario puede entrar a la sala le muestra el mensaje de bienvenida
                                         try {
-                                            imgViewer.setImageDrawable(getResources().getDrawable(R.drawable.ok));
+                                            imgViewer.setImageDrawable(getResources().getDrawable(R.drawable.ok_usuario));
                                             mensaje.setText(obj.get("Error").toString());
                                         } catch (Throwable t) {
                                             t.printStackTrace();
@@ -283,7 +339,7 @@ public class NfcActivity extends AppCompatActivity {
                                     public void run () {
                                         //Si el usuario no puede entrar en la sala se muestra el mensaje de error.
                                         try {
-                                            imgViewer.setImageDrawable(getResources().getDrawable(R.drawable.error));
+                                            imgViewer.setImageDrawable(getResources().getDrawable(R.drawable.error_usuario));
                                             mensaje.setText(obj.get("Error").toString());
 
                                         } catch (Throwable t) {
@@ -302,7 +358,7 @@ public class NfcActivity extends AppCompatActivity {
                             ex.printStackTrace();
                         }
                     }
-                }).start();
+                }).start();*/
             }
         }
     }

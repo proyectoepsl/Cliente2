@@ -1,7 +1,7 @@
-#Sun Jul 16 20:39:45 CEST 2017
-base.0=C\:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_0f3ea9a57bbeb75ae6f08dd639744a215c2771cd
+#Tue Aug 15 14:29:14 CEST 2017
+base.0=C\:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_eb59a69fb0eb0bebab8a58d472109ba8bdca34cc
 renamed.1=classes.dex
 renamed.0=classes2.dex
-file.1=C\:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_70288a672ba1a6d3336a62f3cb799fa691e7f545\\classes.dex
-base.1=C\:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_70288a672ba1a6d3336a62f3cb799fa691e7f545
-file.0=C\:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_0f3ea9a57bbeb75ae6f08dd639744a215c2771cd\\classes.dex
+file.1=C\:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_2aeea5f06d6bd68142a59e901ea9cefd01ba9bbe\\classes.dex
+base.1=C\:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_2aeea5f06d6bd68142a59e901ea9cefd01ba9bbe
+file.0=C\:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_eb59a69fb0eb0bebab8a58d472109ba8bdca34cc\\classes.dex

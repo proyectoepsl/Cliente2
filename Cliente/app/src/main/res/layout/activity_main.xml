@@ -1,57 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayoutMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EEEEEE"
-    android:paddingTop="16dp"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
     tools:context="com.nfc.proyecto.cliente.MainActivity">
 
-    <TextView
-        android:id="@+id/Mensaje"
+    <LinearLayout
+        android:id="@+id/linearLayoutMain"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:textSize="25sp"
-        android:text="Bienvenido al control de dependecias" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-    android:id="@+id/IdenSala"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:background="#00796B"
-    android:text="Identificar Sala"
-    android:textColor="#FFF" />
+        <TextView
+            android:id="@+id/Mensaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="Bienvenido al control de Acceso"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/Capacidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Mensaje"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+
+            />
+
+        <TextView
+            android:id="@+id/Aforo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Capacidad"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_above="@+id/IdenSala"
+            android:layout_below="@+id/Aforo"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp" />
+
+        <Button
+            android:id="@+id/IdenSala"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imageView"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="45dp"
+            android:background="#00796B"
+            android:padding="20dp"
+            android:text="Identificar Sala"
+            android:textColor="#FFF" />
 
 
-    <Button
-        android:id="@+id/nfc"
-        android:background="#00796B"
-        android:text="Leer Nfc"
-        android:visibility="invisible"
-        android:textColor="#FFF"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        />
+        <Button
+            android:id="@+id/nfc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imageView"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="45dp"
+            android:background="#00796B"
+            android:padding="20dp"
+            android:text="Leer NFC"
+            android:textColor="#FFF"
+            android:visibility="invisible" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_marginTop="60dp"
-        android:layout_marginLeft="30dp"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:scaleType="fitCenter"
-         />
 
-</RelativeLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#EEEEEE"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/logo_ujaen" />
+
+
+        <TextView
+            android:id="@+id/Mensaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:text="Bienvenido al acceso NFC"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Mensaje"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:hint="Usuario"
+            android:text="Eva"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHighlight="#000"
+            android:textColorHint="#004D40"
+            android:textSize="15sp" />
+
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/username"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:hint="Password"
+            android:text="52883490g"
+            android:inputType="textPassword"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHighlight="#B2DFDB"
+            android:textColorHint="#004D40"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/password"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:hint="Ip y Puerto Servidor"
+            android:inputType="textUri"
+            android:text="192.168.2.131:8000"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHighlight="#B2DFDB"
+            android:textColorHint="#004D40"
+            android:textSize="15sp" />
+        <!--proyectoepsl.pythonanywhere.com"-->
+
+        <EditText
+            android:id="@+id/pin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/url"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5sp"
+            android:hint="Pin"
+            android:inputType="textNoSuggestions|numberPassword"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHighlight="#B2DFDB"
+            android:textColorHint="#004D40"
+            android:textSize="15sp" />
+
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="45dp"
+            android:background="#00796B"
+            android:padding="20dp"
+            android:text="Hacer Login"
+            android:textColor="#FFF" />
+
+    </LinearLayout>
+</ScrollView>
+

@@ -1,26 +1,26 @@
 [
     {
-        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_narrow_custom.xml",
-        "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout-v11\\notification_template_big_media_narrow_custom.xml"
+        "merged": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_media_cancel_action.xml",
+        "source": "C:\\Users\\tf05091\\.android\\build-cache\\c0660ecfc666b7b708cf1f014e871fe8a29f293b\\output\\res\\layout-v11\\notification_media_cancel_action.xml"
     },
     {
-        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_media_action.xml",
-        "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout-v11\\notification_media_action.xml"
+        "merged": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_media_action.xml",
+        "source": "C:\\Users\\tf05091\\.android\\build-cache\\c0660ecfc666b7b708cf1f014e871fe8a29f293b\\output\\res\\layout-v11\\notification_media_action.xml"
     },
     {
-        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media.xml",
-        "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout-v11\\notification_template_big_media.xml"
+        "merged": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media.xml",
+        "source": "C:\\Users\\tf05091\\.android\\build-cache\\c0660ecfc666b7b708cf1f014e871fe8a29f293b\\output\\res\\layout-v11\\notification_template_big_media.xml"
     },
     {
-        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_custom.xml",
-        "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout-v11\\notification_template_big_media_custom.xml"
+        "merged": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_narrow_custom.xml",
+        "source": "C:\\Users\\tf05091\\.android\\build-cache\\c0660ecfc666b7b708cf1f014e871fe8a29f293b\\output\\res\\layout-v11\\notification_template_big_media_narrow_custom.xml"
     },
     {
-        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_media_cancel_action.xml",
-        "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout-v11\\notification_media_cancel_action.xml"
+        "merged": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_narrow.xml",
+        "source": "C:\\Users\\tf05091\\.android\\build-cache\\c0660ecfc666b7b708cf1f014e871fe8a29f293b\\output\\res\\layout-v11\\notification_template_big_media_narrow.xml"
     },
     {
-        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_narrow.xml",
-        "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout-v11\\notification_template_big_media_narrow.xml"
+        "merged": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_custom.xml",
+        "source": "C:\\Users\\tf05091\\.android\\build-cache\\c0660ecfc666b7b708cf1f014e871fe8a29f293b\\output\\res\\layout-v11\\notification_template_big_media_custom.xml"
     }
 ]

@@ -1,18 +1,18 @@
 [
     {
-        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
-        "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout-v21\\notification_template_custom_big.xml"
+        "merged": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\tf05091\\.android\\build-cache\\c0660ecfc666b7b708cf1f014e871fe8a29f293b\\output\\res\\layout-v21\\notification_template_icon_group.xml"
     },
     {
-        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
-        "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout-v21\\notification_template_icon_group.xml"
+        "merged": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\tf05091\\.android\\build-cache\\c0660ecfc666b7b708cf1f014e871fe8a29f293b\\output\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
-        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
-        "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout-v21\\notification_action_tombstone.xml"
+        "merged": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\tf05091\\.android\\build-cache\\c0660ecfc666b7b708cf1f014e871fe8a29f293b\\output\\res\\layout-v21\\notification_action_tombstone.xml"
     },
     {
-        "merged": "C:\\Users\\sony\\Downloads\\Cliente2\\Cliente\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
-        "source": "C:\\Users\\sony\\.android\\build-cache\\932c1ec3f19c78f626c269895b034df4a430e49c\\output\\res\\layout-v21\\notification_action.xml"
+        "merged": "C:\\Users\\tf05091\\Downloads\\Eva\\Cliente-v4-prefers\\Cliente\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\tf05091\\.android\\build-cache\\c0660ecfc666b7b708cf1f014e871fe8a29f293b\\output\\res\\layout-v21\\notification_action.xml"
     }
 ]

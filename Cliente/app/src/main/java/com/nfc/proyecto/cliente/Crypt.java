@@ -55,6 +55,16 @@ public class Crypt {
 
         return instance;
     }
+
+    public static Crypt getInstance(String key) {
+        if(instance == null){
+            instance = new Crypt();
+
+            key = key;
+        }
+
+        return instance;
+    }
     /**
      * Función de tipo String que recibe una llave (key), un vector de inicialización (ivBytes)
      * y el texto que se desea cifrar(plain)
